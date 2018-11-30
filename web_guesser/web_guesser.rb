@@ -9,16 +9,27 @@ def check_guess(guess)
   elsif guess - 5 > SECRET_NUMBER
     message = 'way too high'
   elsif guess > SECRET_NUMBER
-  	message = "your guess was too high."
+  	message = "a little high."
   elsif guess + 5 < SECRET_NUMBER
   	message = 'way too low'
   elsif guess < SECRET_NUMBER
-  	message = 'your guess is too low'
+  	message = 'a little low'
+  end
+end
+
+def get_color(guess)
+  if guess === SECRET_NUMBER
+  	color = 'green'
+  elsif guess + 5 < SECRET_NUMBER || guess - 5 > SECRET_NUMBER
+  	color = 'red'
+  else
+  	color = 'pink'
   end
 end
 
 get '/' do
   guess = params["guess"].to_i
   message = check_guess(guess)
-  erb :index, :locals => {:message => message}
+  color = get_color(guess)
+  erb :index, :locals => {:message => message, :color => color}
 end
