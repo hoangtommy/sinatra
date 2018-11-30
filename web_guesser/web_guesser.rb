@@ -1,7 +1,14 @@
+
 require 'sinatra'
 require 'sinatra/reloader'
 
 SECRET_NUMBER = rand(101)
+# @@guesses_left = 5
+
+# def reset
+#   @@guesses_left = 5
+#   message = 'new game, new number, new guesses'
+# end
 
 def check_guess(guess)
   if guess === SECRET_NUMBER
@@ -30,6 +37,7 @@ end
 get '/' do
   guess = params["guess"].to_i
   message = check_guess(guess)
+  @@guesses_left -= 1
   color = get_color(guess)
   erb :index, :locals => {:message => message, :color => color}
 end
