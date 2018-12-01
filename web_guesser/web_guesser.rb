@@ -37,7 +37,8 @@ end
 get '/' do
   guess = params["guess"].to_i
   message = check_guess(guess)
-  @@guesses_left -= 1
+  # to-fix: subtracting guesses left is only happening once here. need to create a loop?
+  # @@guesses_left -= 1
   color = get_color(guess)
   erb :index, :locals => {:message => message, :color => color}
 end
