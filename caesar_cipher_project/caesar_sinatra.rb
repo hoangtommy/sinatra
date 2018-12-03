@@ -1,5 +1,7 @@
 require 'sinatra'
-require 'sinatra/reloader'
+if development?
+  require 'sinatra/reloader'
+end
 
 def caesar_cipher(string, number)
 	return string.chars.map {|c|
