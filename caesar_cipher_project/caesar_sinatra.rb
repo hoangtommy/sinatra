@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-message = 'sup sup world!'
+message = 'Caesar Cipher Encoder'
 
 get '/' do
   erb :index, :locals => { :message => message }
