@@ -2,7 +2,8 @@
   <head>
   </head>
   <body>
-  	<h3><%= message %></h3>
+  	<h3>Caesar Cipher Encoder</h3>
+  	
   	<form>
   	  <p>Type in a message to encrypt</p>
   	  <input type='text' name='message'>
@@ -12,5 +13,9 @@
   	  <br>
   	  <input type='submit' value='encrypt'>
   	</form>
+
+  	<p><%= message %></p> 
+  	<p>--<%= code %>--></p>
+  	<p><%= encoded_message %></p>
   </body>
 </html>
